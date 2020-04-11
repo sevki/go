@@ -11,6 +11,7 @@ const GoosAndroid = 0
 const GoosDarwin = 1
 const GoosDragonfly = 0
 const GoosFreebsd = 0
+const GoosHarvey = 0
 const GoosHurd = 0
 const GoosIllumos = 0
 const GoosJs = 0

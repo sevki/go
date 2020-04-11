@@ -1749,6 +1749,9 @@ func (ctxt *Context) match(name string, allTags map[string]bool) bool {
 	if ctxt.GOOS == "illumos" && name == "solaris" {
 		return true
 	}
+	if ctxt.GOOS == "harvey" && name == "plan9" {
+		return true
+	}
 
 	// other tags
 	for _, tag := range ctxt.BuildTags {

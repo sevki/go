@@ -68,7 +68,7 @@ func (h *HeadType) Set(s string) error {
 		*h = Hnetbsd
 	case "openbsd":
 		*h = Hopenbsd
-	case "plan9":
+	case "plan9", "harvey":
 		*h = Hplan9
 	case "illumos", "solaris":
 		*h = Hsolaris

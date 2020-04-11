@@ -49,6 +49,9 @@ func main() {
 		if target == "linux" {
 			fmt.Fprintf(&buf, "// +build !android\n") // must explicitly exclude android for linux
 		}
+		if target == "plan9" {
+			fmt.Fprintf(&buf, "// +build !harvey\n") // must explicitly exclude android for linux
+		}
 		if target == "solaris" {
 			fmt.Fprintf(&buf, "// +build !illumos\n") // must explicitly exclude illumos for solaris
 		}
