@@ -10,6 +10,8 @@ import (
 	"sort"
 	"strings"
 	"time"
+
+	"github.com/google/go-cmp/cmp"
 )
 
 type InternalExample struct {
@@ -75,8 +77,8 @@ func (eg *InternalExample) processRunResult(stdout string, timeSpent time.Durati
 			fail = fmt.Sprintf("got:\n%s\nwant (unordered):\n%s\n", stdout, eg.Output)
 		}
 	} else {
-		if got != want && recovered == nil {
-			fail = fmt.Sprintf("got:\n%s\nwant:\n%s\n", got, want)
+		if diff := cmp.Diff(want, got); diff != "" && recovered == nil {
+			fail = fmt.Sprintf("(want-, got+)\n%s", diff)
 		}
 	}
 	if fail != "" || !finished || recovered != nil {
